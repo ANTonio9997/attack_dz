@@ -1,28 +1,13 @@
 from dz3 import Character
+from paladin import Paladin
 
-player1 = Character("Vasya", 100, 105, 0)
+player1 = Character("Vasya", 100, 12,0)
 print(player1)
 
-player2 = Character("Petya", 100, 3, 2)
+player2 = Paladin("Petya", 110, 3,10, 'undead')
+player2.show_stats()
 
-def main():
-    player1 = Character("Vasya", 100, 15, 3)
-    player2 = Character("Petya", 100, 12, 2)
+player1.attack(player2)
+player2.attack(player1)
 
-    print("Початкові стати гравців:")
-    player1.show_stats()
-    player2.show_stats()
-
-    while player1.is_alive() and player2.is_alive():
-        player1.attack(player2)
-        if player2.is_alive():
-            player2.attack(player1)
-
-    if player1.is_alive():
-        print(f"{player1.name} переміг!")
-    else:
-        print(f"{player2.name} переміг!")
-
-
-if __name__ == "__main__":
-    main()
+print(f"\n{player1}\n{player2}\n")
